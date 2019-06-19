@@ -68,3 +68,15 @@ class html {
     }
 }
 
+class system {
+    
+    
+    public static function printPage($page) {
+        print $page;
+    }
+    
+}
+
+
+
+?>
