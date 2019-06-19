@@ -9,6 +9,24 @@ class main {
         
         $records = csv::getFileRecords($fileName);
         $table = html::table(records);
-        sysmte::printPage($table);
+        system::printPage($table);
     }
+}
+
+class csv {
+    
+    public static function getFileRecords($fileName){
+        
+        if (($handle = fopen($fileName, mode: "r")) !== FALSE) {
+            while (($data = fgetcsv($handle, length: '1000', delimiter: ",")) !== FALSE) {
+                $num = count($data);
+                for ($c=0; $c < $num; $c++) {
+                    $records[] = $data;
+                }
+            }
+            fclose($handle);
+        }
+        return $records;
+    }
+    
 }
